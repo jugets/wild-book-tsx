@@ -5,12 +5,15 @@ import Skill from "./Skill";
 import { IWilder } from "../interfaces";
 
 
+export interface IWilderProps {
+  wilder: IWilder | null;
+}
 
-const Wilder = ({ name, city, upvotes}: IWilder) => (
+const Wilder = (wilder: IWilderProps) => (
   <article className={CardStyle.card}>
     <img src={blank_profile} alt="Jane Doe Profile" />
-    <h3>{name}</h3>
-    <h4>{city}</h4>
+    <h3>{wilder.wilder?.name}</h3>
+    <h4>{wilder.wilder?.city}</h4>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -19,7 +22,7 @@ const Wilder = ({ name, city, upvotes}: IWilder) => (
     </p>
     <h4>Wild Skills</h4>
     <ul className={CardStyle.skills}>
-        {upvotes.map((upvote) => {
+        {wilder.wilder?.upvotes.map((upvote) => {
           return ( 
             <Skill
               id={upvote.id}

@@ -3,19 +3,19 @@ import { IWilder } from "../interfaces";
 import CardStyle from "../Card.module.css";
 
 export interface IWildersProps {
-    wilders: IWilder[];
+    wilders: IWilder[] | null;
 }
 
 const WilderCard = ({ wilders}: IWildersProps) => (
     <section className={CardStyle.cardrow}>
-          {wilders.map((wilder) => {
+          {wilders?.map((wilder) => {
             return (
-              <Wilder
-                key={wilder.id}
-                id={wilder.id}
-                name={wilder.name}
-                city={wilder.city}
-                upvotes={wilder.upvotes}
+              <Wilder wilder={wilder}
+                // key={wilder.id}
+                // id={wilder.id}
+                // name={wilder.name}
+                // city={wilder.city}
+                // upvotes={wilder.upvotes}
               />
             );
           })}
